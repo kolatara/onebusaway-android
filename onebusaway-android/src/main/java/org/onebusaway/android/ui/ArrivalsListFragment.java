@@ -16,6 +16,7 @@
  */
 package org.onebusaway.android.ui;
 
+import org.onebusaway.android.BuildConfig;
 import org.onebusaway.android.R;
 import org.onebusaway.android.app.Application;
 import org.onebusaway.android.io.ObaAnalytics;
@@ -105,7 +106,7 @@ public class ArrivalsListFragment extends ListFragment
 
     private static int ARRIVALS_LIST_LOADER = 2;
 
-    private ArrivalsListAdapter mAdapter;
+    private ArrivalsListAdapterBase mAdapter;
 
     private ArrivalsListHeader mHeader;
 
@@ -278,8 +279,16 @@ public class ArrivalsListFragment extends ListFragment
         setStopId();
         setUserInfo();
 
-        // Create an empty adapter we will use to display the loaded data.
-        mAdapter = new ArrivalsListAdapter(getActivity());
+        // Create an empty adapter we will use to display the loaded data, based on the style defined in the build flavor
+        switch (BuildConfig.ARRIVAL_INFO_STYLE) {
+            case ArrivalsListAdapterBase.ARRIVAL_INFO_STYLE_A:
+                mAdapter = new ArrivalsListAdapterStyleA(getActivity());
+                break;
+            case ArrivalsListAdapterBase.ARRIVAL_INFO_STYLE_B:
+                mAdapter = new ArrivalsListAdapterStyleB(getActivity());
+                break;
+        }
+
         setListAdapter(mAdapter);
 
         // Start out with a progress indicator.
