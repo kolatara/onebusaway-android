@@ -28,7 +28,6 @@
 package org.onebusaway.android.map.googlemapsv2;
 
 import com.google.android.gms.location.LocationRequest;
-
 import com.amazon.geo.mapsv2.CameraUpdateFactory;
 import com.amazon.geo.mapsv2.LocationSource;
 import com.amazon.geo.mapsv2.SupportMapFragment;
