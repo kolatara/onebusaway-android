@@ -82,7 +82,7 @@ android {
             flavorDimension "brand"
             applicationId "com.joulespersecond.seattlebusbot"
             manifestPlaceholders = [databaseAuthority: "com.joulespersecond.oba"]
-            buildConfigField "int", "ARRIVAL_INFO_STYLE", "0" // Defined in ArrivalsListAdapterBase
+            buildConfigField "int", "ARRIVAL_INFO_STYLE", "0" // Defined in BuildFlavorConstants
         }
 
         /**
@@ -99,7 +99,7 @@ android {
             flavorDimension "brand"
             applicationId "org.agencyx.android" // Unique listing of this brand on app store
             manifestPlaceholders = [databaseAuthority: applicationId.toString() + '.provider']
-            buildConfigField "int", "ARRIVAL_INFO_STYLE", "0"  // Defined in ArrivalsListAdapterBase
+            buildConfigField "int", "ARRIVAL_INFO_STYLE", "0"  // Defined in BuildFlavorConstants
         }
 
         agencyY {
@@ -107,7 +107,7 @@ android {
             flavorDimension "brand"
             applicationId "org.agencyy.android" // Unique listing of this brand on app store
             manifestPlaceholders = [databaseAuthority: applicationId.toString() + '.provider']
-            buildConfigField "int", "ARRIVAL_INFO_STYLE", "1" // Defined in ArrivalsListAdapterBase
+            buildConfigField "int", "ARRIVAL_INFO_STYLE", "1" // Defined in BuildFlavorConstants
         }
 
         /**

@@ -27,6 +27,7 @@ import org.onebusaway.android.io.elements.ObaSituation;
 import org.onebusaway.android.io.elements.ObaStop;
 import org.onebusaway.android.io.request.ObaArrivalInfoResponse;
 import org.onebusaway.android.provider.ObaContract;
+import org.onebusaway.android.util.BuildFlavorConstants;
 import org.onebusaway.android.util.FragmentUtils;
 import org.onebusaway.android.util.LocationUtil;
 import org.onebusaway.android.util.MyTextUtils;
@@ -281,10 +282,10 @@ public class ArrivalsListFragment extends ListFragment
 
         // Create an empty adapter we will use to display the loaded data, based on the style defined in the build flavor
         switch (BuildConfig.ARRIVAL_INFO_STYLE) {
-            case ArrivalsListAdapterBase.ARRIVAL_INFO_STYLE_A:
+            case BuildFlavorConstants.ARRIVAL_INFO_STYLE_A:
                 mAdapter = new ArrivalsListAdapterStyleA(getActivity());
                 break;
-            case ArrivalsListAdapterBase.ARRIVAL_INFO_STYLE_B:
+            case BuildFlavorConstants.ARRIVAL_INFO_STYLE_B:
                 mAdapter = new ArrivalsListAdapterStyleB(getActivity());
                 break;
         }
