@@ -16,6 +16,8 @@
  */
 package org.onebusaway.android.ui;
 
+import com.google.android.gms.analytics.GoogleAnalytics;
+
 import org.onebusaway.android.BuildConfig;
 import org.onebusaway.android.R;
 import org.onebusaway.android.app.Application;
@@ -30,12 +32,11 @@ import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceActivity;
+import android.preference.PreferenceCategory;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Window;
 import android.widget.Toast;
-
-import com.google.android.gms.analytics.GoogleAnalytics;
 
 public class PreferencesActivity extends PreferenceActivity
         implements Preference.OnPreferenceClickListener, OnPreferenceChangeListener,
@@ -89,6 +90,26 @@ public class PreferencesActivity extends PreferenceActivity
     @Override
     protected void onResume() {
         super.onResume();
+
+        // Hide any preferences that shouldn't be shown if the region is hard-coded via build flavor
+        if (!BuildConfig.ALLOW_REGION_ROAMING) {
+            PreferenceCategory regionCategory = (PreferenceCategory)
+                    findPreference(getString(R.string.preferences_category_location));
+            if (regionCategory != null) {
+                regionCategory.removePreference(regionPref);
+                Preference autoSelectRegion = findPreference(
+                        getString(R.string.preference_key_auto_refresh_regions));
+                regionCategory.removePreference(autoSelectRegion);
+            }
+            PreferenceCategory advancedCategory = (PreferenceCategory)
+                    findPreference(getString(R.string.preferences_category_advanced));
+            if (advancedCategory != null) {
+                Preference experimentalRegion = findPreference(
+                        getString(R.string.preference_key_experimental_regions));
+                advancedCategory.removePreference(experimentalRegion);
+            }
+        }
+
         changePreferenceSummary(getString(R.string.preference_key_region));
         changePreferenceSummary(getString(R.string.preference_key_preferred_units));
     }

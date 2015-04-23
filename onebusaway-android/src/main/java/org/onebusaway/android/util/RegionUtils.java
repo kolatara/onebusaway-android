@@ -502,6 +502,30 @@ public class RegionUtils {
         return new ArrayList<ObaRegion>(Arrays.asList(response.getRegions()));
     }
 
+    /**
+     * Retrieves hard-coded region information from the build flavor defined in build.gradle.
+     * If a fixed region is defined in a build flavor, it does not allow region roaming.
+     *
+     * @return hard-coded region information from the build flavor defined in build.gradle
+     */
+    public static ObaRegion getRegionFromBuildFlavor() {
+        ObaRegionElement.Bounds[] boundsArray = new ObaRegionElement.Bounds[1];
+        ObaRegionElement.Bounds bounds = new ObaRegionElement.Bounds(
+                BuildConfig.FIXED_REGION_BOUNDS_LAT, BuildConfig.FIXED_REGION_BOUNDS_LON,
+                BuildConfig.FIXED_REGION_BOUNDS_LAT_SPAN, BuildConfig.FIXED_REGION_BOUNDS_LON_SPAN);
+        boundsArray[0] = bounds;
+        ObaRegionElement region = new ObaRegionElement(BuildConfig.FIXED_REGION_ID,
+                BuildConfig.FIXED_REGION_NAME, BuildConfig.FIXED_REGION_ACTIVE,
+                BuildConfig.FIXED_REGION_OBA_BASE_URL, BuildConfig.FIXED_REGION_SIRI_BASE_URL,
+                boundsArray, BuildConfig.FIXED_REGION_LANG, BuildConfig.FIXED_REGION_CONTACT_EMAIL,
+                BuildConfig.FIXED_REGION_SUPPORTS_OBA_DISCOVERY_APIS,
+                BuildConfig.FIXED_REGION_SUPPORTS_OBA_REALTIME_APIS,
+                BuildConfig.FIXED_REGION_SUPPORTS_SIRI_REALTIME_APIS,
+                BuildConfig.FIXED_REGION_TWITTER_URL, BuildConfig.FIXED_REGION_EXPERIMENTAL,
+                BuildConfig.FIXED_REGION_STOP_INFO_URL);
+        return region;
+    }
+
     //
     // Saving
     //

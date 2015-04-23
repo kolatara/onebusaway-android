@@ -83,6 +83,25 @@ android {
             applicationId "com.joulespersecond.seattlebusbot"
             manifestPlaceholders = [databaseAuthority: "com.joulespersecond.oba"]
             buildConfigField "int", "ARRIVAL_INFO_STYLE", "0" // Defined in BuildFlavorConstants
+            buildConfigField "boolean", "ALLOW_REGION_ROAMING", "true" // Supports multi-region
+            // Below fields need to be defined so flavor builds, but will not be used by app
+            buildConfigField "int", "FIXED_REGION_ID", "-1"
+            buildConfigField "String", "FIXED_REGION_NAME", "null"
+            buildConfigField "boolean", "FIXED_REGION_ACTIVE", "true"
+            buildConfigField "String", "FIXED_REGION_OBA_BASE_URL", "null"
+            buildConfigField "String", "FIXED_REGION_SIRI_BASE_URL", "null"
+            buildConfigField "double", "FIXED_REGION_BOUNDS_LAT", "0"
+            buildConfigField "double", "FIXED_REGION_BOUNDS_LON", "0"
+            buildConfigField "double", "FIXED_REGION_BOUNDS_LAT_SPAN", "0"
+            buildConfigField "double", "FIXED_REGION_BOUNDS_LON_SPAN", "0"
+            buildConfigField "String", "FIXED_REGION_LANG", "null"
+            buildConfigField "String", "FIXED_REGION_CONTACT_EMAIL", "null"
+            buildConfigField "boolean", "FIXED_REGION_SUPPORTS_OBA_DISCOVERY_APIS", "true"
+            buildConfigField "boolean", "FIXED_REGION_SUPPORTS_OBA_REALTIME_APIS", "true"
+            buildConfigField "boolean", "FIXED_REGION_SUPPORTS_SIRI_REALTIME_APIS", "false"
+            buildConfigField "String", "FIXED_REGION_TWITTER_URL", "null"
+            buildConfigField "boolean", "FIXED_REGION_EXPERIMENTAL", "false"
+            buildConfigField "String", "FIXED_REGION_STOP_INFO_URL", "null"
         }
 
         /**
@@ -100,6 +119,25 @@ android {
             applicationId "org.agencyx.android" // Unique listing of this brand on app store
             manifestPlaceholders = [databaseAuthority: applicationId.toString() + '.provider']
             buildConfigField "int", "ARRIVAL_INFO_STYLE", "0"  // Defined in BuildFlavorConstants
+            buildConfigField "boolean", "ALLOW_REGION_ROAMING", "true" // Supports multi-region
+            // Below fields need to be defined so flavor builds, but will not be used by app
+            buildConfigField "int", "FIXED_REGION_ID", "-1"
+            buildConfigField "String", "FIXED_REGION_NAME", "null"
+            buildConfigField "boolean", "FIXED_REGION_ACTIVE", "true"
+            buildConfigField "String", "FIXED_REGION_OBA_BASE_URL", "null"
+            buildConfigField "String", "FIXED_REGION_SIRI_BASE_URL", "null"
+            buildConfigField "double", "FIXED_REGION_BOUNDS_LAT", "0"
+            buildConfigField "double", "FIXED_REGION_BOUNDS_LON", "0"
+            buildConfigField "double", "FIXED_REGION_BOUNDS_LAT_SPAN", "0"
+            buildConfigField "double", "FIXED_REGION_BOUNDS_LON_SPAN", "0"
+            buildConfigField "String", "FIXED_REGION_LANG", "null"
+            buildConfigField "String", "FIXED_REGION_CONTACT_EMAIL", "null"
+            buildConfigField "boolean", "FIXED_REGION_SUPPORTS_OBA_DISCOVERY_APIS", "true"
+            buildConfigField "boolean", "FIXED_REGION_SUPPORTS_OBA_REALTIME_APIS", "true"
+            buildConfigField "boolean", "FIXED_REGION_SUPPORTS_SIRI_REALTIME_APIS", "false"
+            buildConfigField "String", "FIXED_REGION_TWITTER_URL", "null"
+            buildConfigField "boolean", "FIXED_REGION_EXPERIMENTAL", "false"
+            buildConfigField "String", "FIXED_REGION_STOP_INFO_URL", "null"
         }
 
         agencyY {
@@ -108,6 +146,28 @@ android {
             applicationId "org.agencyy.android" // Unique listing of this brand on app store
             manifestPlaceholders = [databaseAuthority: applicationId.toString() + '.provider']
             buildConfigField "int", "ARRIVAL_INFO_STYLE", "1" // Defined in BuildFlavorConstants
+            buildConfigField "boolean", "ALLOW_REGION_ROAMING", "false"
+            // Does not support multi-region
+            // Fixed region info that the app will use
+            buildConfigField "int", "FIXED_REGION_ID", "-1"
+            buildConfigField "String", "FIXED_REGION_NAME", "\"Agency Y\""
+            buildConfigField "boolean", "FIXED_REGION_ACTIVE", "true"
+            buildConfigField "String", "FIXED_REGION_OBA_BASE_URL",
+                    "\"http://api.tampa.onebusaway.org/api\""
+            buildConfigField "String", "FIXED_REGION_SIRI_BASE_URL", "null"
+            buildConfigField "double", "FIXED_REGION_BOUNDS_LAT", "27.976910500000002"
+            buildConfigField "double", "FIXED_REGION_BOUNDS_LON", "-82.445851"
+            buildConfigField "double", "FIXED_REGION_BOUNDS_LAT_SPAN", "0.5424609999999994"
+            buildConfigField "double", "FIXED_REGION_BOUNDS_LON_SPAN", "0.576357999999999"
+            buildConfigField "String", "FIXED_REGION_LANG", "\"en_US\""
+            buildConfigField "String", "FIXED_REGION_CONTACT_EMAIL", "\"onebusaway@gohart.org\""
+            buildConfigField "boolean", "FIXED_REGION_SUPPORTS_OBA_DISCOVERY_APIS", "true"
+            buildConfigField "boolean", "FIXED_REGION_SUPPORTS_OBA_REALTIME_APIS", "true"
+            buildConfigField "boolean", "FIXED_REGION_SUPPORTS_SIRI_REALTIME_APIS", "false"
+            buildConfigField "String", "FIXED_REGION_TWITTER_URL",
+                    "\"http://mobile.twitter.com/OBA_tampa\""
+            buildConfigField "boolean", "FIXED_REGION_EXPERIMENTAL", "false"
+            buildConfigField "String", "FIXED_REGION_STOP_INFO_URL", "null"
         }
 
         /**
