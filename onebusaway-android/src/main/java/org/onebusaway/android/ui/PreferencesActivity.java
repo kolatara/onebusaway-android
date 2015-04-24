@@ -33,6 +33,7 @@ import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceCategory;
+import android.preference.PreferenceScreen;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Window;
@@ -85,30 +86,25 @@ public class PreferencesActivity extends PreferenceActivity
                 getString(R.string.preference_key_preferred_units));
 
         settings.registerOnSharedPreferenceChangeListener(this);
+
+        // Hide any preferences that shouldn't be shown if the region is hard-coded via build flavor
+        if (!BuildConfig.ALLOW_REGION_ROAMING) {
+            PreferenceScreen preferenceScreen = getPreferenceScreen();
+            PreferenceCategory regionCategory = (PreferenceCategory)
+                    findPreference(getString(R.string.preferences_category_location));
+            regionCategory.removeAll();
+            preferenceScreen.removePreference(regionCategory);
+            PreferenceCategory advancedCategory = (PreferenceCategory)
+                    findPreference(getString(R.string.preferences_category_advanced));
+            Preference experimentalRegion = findPreference(
+                    getString(R.string.preference_key_experimental_regions));
+            advancedCategory.removePreference(experimentalRegion);
+        }
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-
-        // Hide any preferences that shouldn't be shown if the region is hard-coded via build flavor
-        if (!BuildConfig.ALLOW_REGION_ROAMING) {
-            PreferenceCategory regionCategory = (PreferenceCategory)
-                    findPreference(getString(R.string.preferences_category_location));
-            if (regionCategory != null) {
-                regionCategory.removePreference(regionPref);
-                Preference autoSelectRegion = findPreference(
-                        getString(R.string.preference_key_auto_refresh_regions));
-                regionCategory.removePreference(autoSelectRegion);
-            }
-            PreferenceCategory advancedCategory = (PreferenceCategory)
-                    findPreference(getString(R.string.preferences_category_advanced));
-            if (advancedCategory != null) {
-                Preference experimentalRegion = findPreference(
-                        getString(R.string.preference_key_experimental_regions));
-                advancedCategory.removePreference(experimentalRegion);
-            }
-        }
 
         changePreferenceSummary(getString(R.string.preference_key_region));
         changePreferenceSummary(getString(R.string.preference_key_preferred_units));

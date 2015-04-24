@@ -16,8 +16,9 @@
 -->
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
                   android:key="preferences_root">
-    <PreferenceCategory android:title="@string/preferences_category_location">
-        <Preference
+    <PreferenceCategory android:title="@string/preferences_category_location"
+                        android:key="@string/preferences_category_location">
+    <Preference
                 android:key="@string/preference_key_region"
                 android:title="@string/preferences_region_title"/>
         <CheckBoxPreference
@@ -64,8 +65,10 @@
             android:summary="@string/preferences_donate_summary">
         </Preference>
     </PreferenceCategory>
-    <PreferenceCategory android:title="@string/preferences_category_advanced">
+    <PreferenceCategory android:title="@string/preferences_category_advanced"
+                        android:key="@string/preferences_category_advanced">
         <org.onebusaway.android.region.ExperimentalRegionsPreference
+                android:key="@string/preference_key_experimental_regions"
                 android:title="@string/preferences_experimental_regions_title"
                 android:summary="@string/preferences_experimental_regions_summary"/>
         <EditTextPreference
