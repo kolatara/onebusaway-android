@@ -509,12 +509,13 @@ public class RegionUtils {
      * @return hard-coded region information from the build flavor defined in build.gradle
      */
     public static ObaRegion getRegionFromBuildFlavor() {
+        final int regionId = -1; // This doesn't get used
         ObaRegionElement.Bounds[] boundsArray = new ObaRegionElement.Bounds[1];
         ObaRegionElement.Bounds bounds = new ObaRegionElement.Bounds(
                 BuildConfig.FIXED_REGION_BOUNDS_LAT, BuildConfig.FIXED_REGION_BOUNDS_LON,
                 BuildConfig.FIXED_REGION_BOUNDS_LAT_SPAN, BuildConfig.FIXED_REGION_BOUNDS_LON_SPAN);
         boundsArray[0] = bounds;
-        ObaRegionElement region = new ObaRegionElement(BuildConfig.FIXED_REGION_ID,
+        ObaRegionElement region = new ObaRegionElement(regionId,
                 BuildConfig.FIXED_REGION_NAME, BuildConfig.FIXED_REGION_ACTIVE,
                 BuildConfig.FIXED_REGION_OBA_BASE_URL, BuildConfig.FIXED_REGION_SIRI_BASE_URL,
                 boundsArray, BuildConfig.FIXED_REGION_LANG, BuildConfig.FIXED_REGION_CONTACT_EMAIL,

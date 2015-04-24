@@ -85,7 +85,6 @@ android {
             buildConfigField "int", "ARRIVAL_INFO_STYLE", "0" // Defined in BuildFlavorConstants
             buildConfigField "boolean", "USE_FIXED_REGION", "false" // Supports multi-region
             // Below fields need to be defined so flavor builds, but will not be used by app
-            buildConfigField "int", "FIXED_REGION_ID", "-1"
             buildConfigField "String", "FIXED_REGION_NAME", "null"
             buildConfigField "boolean", "FIXED_REGION_ACTIVE", "true"
             buildConfigField "String", "FIXED_REGION_OBA_BASE_URL", "null"
@@ -121,7 +120,6 @@ android {
             buildConfigField "int", "ARRIVAL_INFO_STYLE", "0"  // Defined in BuildFlavorConstants
             buildConfigField "boolean", "USE_FIXED_REGION", "false" // Supports multi-region
             // Below fields need to be defined so flavor builds, but will not be used by app
-            buildConfigField "int", "FIXED_REGION_ID", "-1"
             buildConfigField "String", "FIXED_REGION_NAME", "null"
             buildConfigField "boolean", "FIXED_REGION_ACTIVE", "true"
             buildConfigField "String", "FIXED_REGION_OBA_BASE_URL", "null"
@@ -148,7 +146,6 @@ android {
             buildConfigField "int", "ARRIVAL_INFO_STYLE", "1" // Defined in BuildFlavorConstants
             buildConfigField "boolean", "USE_FIXED_REGION", "true" // Does not support multi-region
             // Fixed region info that the app will use
-            buildConfigField "int", "FIXED_REGION_ID", "-1"
             buildConfigField "String", "FIXED_REGION_NAME", "\"Agency Y\""
             buildConfigField "boolean", "FIXED_REGION_ACTIVE", "true"
             buildConfigField "String", "FIXED_REGION_OBA_BASE_URL",
