@@ -88,7 +88,7 @@ public class PreferencesActivity extends PreferenceActivity
         settings.registerOnSharedPreferenceChangeListener(this);
 
         // Hide any preferences that shouldn't be shown if the region is hard-coded via build flavor
-        if (!BuildConfig.ALLOW_REGION_ROAMING) {
+        if (BuildConfig.USE_FIXED_REGION) {
             PreferenceScreen preferenceScreen = getPreferenceScreen();
             PreferenceCategory regionCategory = (PreferenceCategory)
                     findPreference(getString(R.string.preferences_category_location));

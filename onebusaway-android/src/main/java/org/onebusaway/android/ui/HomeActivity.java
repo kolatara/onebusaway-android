@@ -772,7 +772,7 @@ public class HomeActivity extends ActionBarActivity
         }
 
         // Check if region is hard-coded for this build flavor
-        if (!BuildConfig.ALLOW_REGION_ROAMING) {
+        if (BuildConfig.USE_FIXED_REGION) {
             // Set the hard-coded region
             Application.get().setCurrentRegion(RegionUtils.getRegionFromBuildFlavor());
             // Disable any region auto-selection in preferences
