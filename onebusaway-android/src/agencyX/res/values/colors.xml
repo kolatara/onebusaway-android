@@ -21,5 +21,6 @@
     <color name="theme_muted">#FFCAD2</color>
     <color name="theme_accent">#E53935</color>
 
+    <color name="stop_info_ontime">#4CAF50</color>
     <!-- See src/main/res/colors.xml for more colors you can override here -->
 </resources>
