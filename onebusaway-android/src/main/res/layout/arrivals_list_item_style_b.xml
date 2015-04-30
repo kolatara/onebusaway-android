@@ -130,17 +130,19 @@
                                 android:id="@+id/destinationNew"/>
                     </LinearLayout>
 
-                    <ImageView
+                    <ImageButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:id="@+id/mapImageView"
                             android:src="@drawable/ic_arrivals_styleb_action_map"
+                            android:background="@drawable/selectable_background_busbot"
+                            android:contentDescription="@string/route_info_context_showonmap"
                             android:paddingLeft="5dp"
                             android:layout_marginTop="10dp"
                             android:layout_column="1"
                             android:clickable="false"/>
 
-                    <ImageView
+                    <ImageButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:id="@+id/infoImageView"
@@ -148,7 +150,9 @@
                             android:paddingRight="10dp"
                             android:layout_marginTop="10dp"
                             android:layout_column="2"
-                            android:src="@drawable/ic_action_info"/>
+                            android:src="@drawable/ic_action_info"
+                            android:background="@drawable/selectable_background_busbot"
+                            android:contentDescription="@string/stop_info_item_options_title"/>
                 </TableRow>
 
                 <TableRow
