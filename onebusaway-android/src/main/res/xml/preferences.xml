@@ -53,7 +53,8 @@
                 android:title="@string/preferences_restore_title"
                 android:summary="@string/preferences_restore_summary"/>
     </PreferenceCategory>
-    <PreferenceCategory android:title="@string/preferences_category_about">
+    <PreferenceCategory android:title="@string/preferences_category_about"
+                        android:key="@string/preferences_category_about">
         <CheckBoxPreference
             android:key="@string/preferences_key_analytics"
             android:title="@string/preferences_analytics_title"
@@ -62,8 +63,11 @@
         <Preference
             android:key="@string/preferences_key_donate"
             android:title="@string/preferences_donate_title"
-            android:summary="@string/preferences_donate_summary">
-        </Preference>
+            android:summary="@string/preferences_donate_summary"/>
+        <Preference
+                android:key="@string/preferences_key_powered_by_oba"
+                android:title="@string/preferences_powered_by_oba_title"
+                android:summary="@string/preferences_powered_by_oba_summary"/>
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/preferences_category_advanced"
                         android:key="@string/preferences_category_advanced">

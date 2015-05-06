@@ -22,6 +22,9 @@ package org.onebusaway.android.util;
  */
 public class BuildFlavorConstants {
 
+    public static final String OBA_FLAVOR_BRAND = "oba";
+            // Used to show/hide donate/powered by oba pref
+
     public static final int ARRIVAL_INFO_STYLE_A = 0; // Original OBA style
 
     public static final int ARRIVAL_INFO_STYLE_B = 1; // Style used by York Region Transit
