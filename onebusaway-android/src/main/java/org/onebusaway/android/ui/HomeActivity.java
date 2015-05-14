@@ -72,6 +72,7 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 
@@ -773,8 +774,10 @@ public class HomeActivity extends ActionBarActivity
 
         // Check if region is hard-coded for this build flavor
         if (BuildConfig.USE_FIXED_REGION) {
+            ObaRegion r = RegionUtils.getRegionFromBuildFlavor();
             // Set the hard-coded region
-            Application.get().setCurrentRegion(RegionUtils.getRegionFromBuildFlavor());
+            RegionUtils.saveToProvider(this, Collections.singletonList(r));
+            Application.get().setCurrentRegion(r);
             // Disable any region auto-selection in preferences
             PreferenceHelp
                     .saveBoolean(getString(R.string.preference_key_auto_select_region), false);
