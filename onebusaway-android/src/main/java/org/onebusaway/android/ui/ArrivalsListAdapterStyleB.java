@@ -19,6 +19,7 @@ package org.onebusaway.android.ui;
 import org.onebusaway.android.R;
 import org.onebusaway.android.io.elements.ObaArrivalInfo;
 import org.onebusaway.android.util.MyTextUtils;
+import org.onebusaway.util.comparators.AlphanumComparator;
 
 import android.content.ContentQueryMap;
 import android.content.Context;
@@ -36,6 +37,8 @@ import java.util.Comparator;
  * Styles of arrival times used by York Region Transit
  */
 public class ArrivalsListAdapterStyleB extends ArrivalsListAdapterBase<CombinedArrivalInfoStyleB> {
+
+    AlphanumComparator mAlphanumComparator = new AlphanumComparator();
 
     public ArrivalsListAdapterStyleB(Context context) {
         super(context, R.layout.arrivals_list_item_style_b);
@@ -56,7 +59,8 @@ public class ArrivalsListAdapterStyleB extends ArrivalsListAdapterBase<CombinedA
             Collections.sort(list, new Comparator<ArrivalInfo>() {
                 @Override
                 public int compare(ArrivalInfo s1, ArrivalInfo s2) {
-                    return s1.getInfo().getRouteId().compareTo(s2.getInfo().getRouteId());
+                    return mAlphanumComparator
+                            .compare(s1.getInfo().getRouteId(), s2.getInfo().getRouteId());
                 }
             });
 
